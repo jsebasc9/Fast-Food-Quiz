@@ -1,9 +1,11 @@
-import json
+def inputInt(prompt):
+    while True:
+        value = input(prompt)
+        try:
+            numResponse = int(value)
+        except ValueError:
+            print('Invalid input - Try again.')
+            continue
+        return numResponse
 
-try:
-    with open('Accounts.json', 'r') as fp:
-        accounts = json.load(fp)
-
-except IOError:
-    print('File not found, will create a new one.')
-    accounts = {}
+inputInt(1)

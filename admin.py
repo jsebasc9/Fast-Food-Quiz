@@ -17,20 +17,38 @@ import json
 # This function repeatedly prompts for input until an integer is entered.
 # See Point 1 of the "Functions in admin.py" section of the assignment brief.
 def input_int(prompt):
-    pass
+    while True:
+        try:
+            response = int(prompt)
+            if response <= 0:
+                prompt = input('Invalid input - Try again: ')
+            else:
+                break
+        except ValueError:
+            prompt = input('Invalid input - Try again: ')
+            continue
+        return response
+    # pass
 
 
 
 # This function repeatedly prompts for input until something other than whitespace is entered.
 # See Point 2 of the "Functions in admin.py" section of the assignment brief.
-def input_something(prompt):
-    pass
+def input_something(prompt):  
+    while True: 
+        if not prompt.strip():
+            prompt = input('Invalid input - Try again: ')
+        else:
+            break
+    # pass
 
 
 
 # This function opens "data.txt" in write mode and writes data_list to it in JSON format.
 # See Point 3 of the "Functions in admin.py" section of the assignment brief.
 def save_data(data_list):
+    with open('data.json', 'w') as file:
+            json.dump(data_list, file, indent=4)
     pass
 
 
@@ -63,17 +81,24 @@ while True:
     if choice == 'a':
         # Add a new fast-food item.
         fast_food = {'name':'', 'energy':'', 'fat':'', 'protein':'', 'carbohydrates':'', 'sugars':'', 'sodium':''}
+        
+        # repeatedly re-prompt the user for valid input no whitespace
         fast_food['name'] = input('Enter name of fast-food item: ')
+        input_something(fast_food['name']) # repeatedly re-prompt the user for valid input no whitespace         
         fast_food['energy'] = input('Enter energy in kilojoules: ')
+        input_int(fast_food['energy'])
         fast_food['fat'] = input('Enter fat in grams: ')
+        input_int(fast_food['fat'])
         fast_food['protein'] = input('Enter protein in grams: ')
+        input_int(fast_food['protein'])
         fast_food['carbohydrates'] = input('Enter carbohydrates in grams: ')
+        input_int(fast_food['carbohydrates'])
         fast_food['sugars'] = input('Enter sugars in grams: ')
+        input_int(fast_food['sodium'])
         fast_food['sodium'] = input('Enter sodium in milligrams: ')
 
         data.append(fast_food)
-        with open('data.json', 'w') as file:
-            json.dump(data, file)
+        save_data(data)
         fast_food.clear()
         pass
 
