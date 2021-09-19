@@ -1,11 +1,38 @@
 [
     {
-        "name": "King Burger",
-        "energy": "23",
-        "fat": "45",
-        "protein": "67",
+        "name": "Pizza",
+        "energy": "56",
+        "fat": "34",
+        "protein": "65",
+        "carbohydrates": "76",
+        "sugars": "56",
+        "sodium": "65"
+    },
+    {
+        "name": "Hamburger",
+        "energy": "34",
+        "fat": "6",
+        "protein": "56",
+        "carbohydrates": "2",
+        "sugars": "43",
+        "sodium": "5"
+    },
+    {
+        "name": "Hot Dog",
+        "energy": "43",
+        "fat": "54",
+        "protein": "65",
         "carbohydrates": "45",
-        "sugars": "34",
-        "sodium": "45"
+        "sugars": "23",
+        "sodium": "453"
+    },
+    {
+        "name": "Big Mac",
+        "energy": "34",
+        "fat": "5",
+        "protein": "6",
+        "carbohydrates": "65",
+        "sugars": "45",
+        "sodium": "3"
     }
 ]

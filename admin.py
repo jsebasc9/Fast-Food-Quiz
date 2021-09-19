@@ -12,7 +12,7 @@
 
 # Import the json module to allow us to read and write data in JSON format.
 import json
-
+data=[]
 
 # This function repeatedly prompts for input until an integer is entered.
 # See Point 1 of the "Functions in admin.py" section of the assignment brief.
@@ -49,7 +49,8 @@ def input_something(prompt):
 def save_data(data_list):
     with open('data.json', 'w') as file:
             json.dump(data_list, file, indent=4)
-    pass
+    file.close()
+    # pass
 
 
 
@@ -57,10 +58,10 @@ def save_data(data_list):
 # If the file does not exist or does not contain JSON data, set "data" to an empty list instead.
 # This is the only time that the program should need to read anything from the file.
 # See Point 1 of the "Requirements of admin.py" section of the assignment brief.
-data=[]
+
 try:
-    with open('data.json', 'r') as file:
-        data = json.load(file)
+    with open('data.json', 'r') as file: # Opening JSON File on read mode
+        data = json.load(file) 
     print(data)
 except FileNotFoundError: # In case there is no file
     print('File not found, will create a new one.')
@@ -86,63 +87,75 @@ while True:
         fast_food['name'] = input('Enter name of fast-food item: ')
         input_something(fast_food['name']) # repeatedly re-prompt the user for valid input no whitespace         
         fast_food['energy'] = input('Enter energy in kilojoules: ')
-        input_int(fast_food['energy'])
+        input_int(fast_food['energy']) # repeatedly re-prompt the user for valid input integer
         fast_food['fat'] = input('Enter fat in grams: ')
-        input_int(fast_food['fat'])
+        input_int(fast_food['fat']) # repeatedly re-prompt the user for valid input integer
         fast_food['protein'] = input('Enter protein in grams: ')
-        input_int(fast_food['protein'])
+        input_int(fast_food['protein']) # repeatedly re-prompt the user for valid input integer
         fast_food['carbohydrates'] = input('Enter carbohydrates in grams: ')
-        input_int(fast_food['carbohydrates'])
+        input_int(fast_food['carbohydrates']) # repeatedly re-prompt the user for valid input integer
         fast_food['sugars'] = input('Enter sugars in grams: ')
-        input_int(fast_food['sodium'])
+        input_int(fast_food['sugars']) # repeatedly re-prompt the user for valid input integer
         fast_food['sodium'] = input('Enter sodium in milligrams: ')
+        input_int(fast_food['sodium']) # repeatedly re-prompt the user for valid input integer
 
-        data.append(fast_food)
-        save_data(data)
-        fast_food.clear()
-        pass
+        data.append(fast_food) # Appending fast_food dictionary to data list
+        save_data(data) # Saving information of the list in JSON
+        # pass
 
 
     
     elif choice == 'l':
         # List the current fast-food items.
+        dictionary = {}
+        if data:
+            for index, itemlist in enumerate(data, 1): # Iterating data dictionary using enumerate to start from 1
+                temp_dictionary = itemlist # Setting item as a Dictionary to iterate
+                for itemdictionary, detail in temp_dictionary.items(): # Iterating dictionary
+                    if itemdictionary == 'name': # Lookinf for key 'name'
+                        name = detail # Setting name to display depending of key
+                print(index, ') ', name, sep='', end='\n')
+
+                
+        else:
+            print('No items saved') 
         # See Point 4 of the "Requirements of admin.py" section of the assignment brief.
-        pass
+        # pass
 
 
 
-    elif choice == 's':
+    # elif choice == 's':
         # Search the current fast-food items.
         # See Point 5 of the "Requirements of admin.py" section of the assignment brief.
-        pass
+        # pass
 
 
 
-    elif choice == 'v':
+    # elif choice == 'v':
         # View a fast-food item.
         # See Point 6 of the "Requirements of admin.py" section of the assignment brief.
-        pass
+        # pass
 
         
 
-    elif choice == 'd':
+    # elif choice == 'd':
         # Delete a fast-food item.
         # See Point 7 of the "Requirements of admin.py" section of the assignment brief.
-        pass
+        # pass
 
         
 
-    elif choice == 'q':
+    # elif choice == 'q':
         # End the program.
         # See Point 8 of the "Requirements of admin.py" section of the assignment brief.
-        pass
+        # pass
 
 
 
-    else:
+    # else:
         # Print "invalid choice" message.
         # See Point 9 of the "Requirements of admin.py" section of the assignment brief.
-        pass
+        # pass
 
 
 
