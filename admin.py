@@ -39,8 +39,17 @@ def save_data(data_list):
 # If the file does not exist or does not contain JSON data, set "data" to an empty list instead.
 # This is the only time that the program should need to read anything from the file.
 # See Point 1 of the "Requirements of admin.py" section of the assignment brief.
+data=[]
+try:
+    with open('data.json', 'r') as file:
+        data = json.load(file)
+    print(data)
+except FileNotFoundError: # In case there is no file
+    print('File not found, will create a new one.')
+    with open('data.json', 'w') as file:  # Create a file using write/read mode
+        json.dump(data, file) 
 
-
+file.close()
 
 # Print welcome message, then enter the endless loop which prompts the user for a choice.
 # See Point 2 of the "Requirements of admin.py" section of the assignment brief.
@@ -53,7 +62,19 @@ while True:
         
     if choice == 'a':
         # Add a new fast-food item.
-        # See Point 3 of the "Requirements of admin.py" section of the assignment brief.
+        fast_food = {'name':'', 'energy':'', 'fat':'', 'protein':'', 'carbohydrates':'', 'sugars':'', 'sodium':''}
+        fast_food['name'] = input('Enter name of fast-food item: ')
+        fast_food['energy'] = input('Enter energy in kilojoules: ')
+        fast_food['fat'] = input('Enter fat in grams: ')
+        fast_food['protein'] = input('Enter protein in grams: ')
+        fast_food['carbohydrates'] = input('Enter carbohydrates in grams: ')
+        fast_food['sugars'] = input('Enter sugars in grams: ')
+        fast_food['sodium'] = input('Enter sodium in milligrams: ')
+
+        data.append(fast_food)
+        with open('data.json', 'w') as file:
+            json.dump(data, file)
+        fast_food.clear()
         pass
 
 
