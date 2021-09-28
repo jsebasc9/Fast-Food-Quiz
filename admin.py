@@ -114,9 +114,7 @@ while True:
                 for itemdictionary, detail in temp_dictionary.items(): # Iterating dictionary
                     if itemdictionary == 'name': # Lookinf for key 'name'
                         name = detail # Setting name to display depending of key
-                print(index, ') ', name, sep='', end='\n')
-
-                
+                print(index, ') ', name, sep='', end='\n')        
         else:
             print('No items saved') 
         # See Point 4 of the "Requirements of admin.py" section of the assignment brief.
@@ -124,8 +122,27 @@ while True:
 
 
 
-    # elif choice == 's':
+    elif choice == 's':
         # Search the current fast-food items.
+        flag_search = False # Defining flag to confirm available results
+        index = 1 # Initialization of index for search results
+        term = input('Enter search term: ')
+        input_something(term) # repeatedly re-prompt the user for valid input no whitespace
+        print('Search results: ')
+        if data:
+            for itemlist in data: # Iterating data dictionary using enumerate to start from 1
+                temp_dictionary = itemlist # Setting item as a Dictionary to iterate
+                for itemdictionary, detail in temp_dictionary.items(): # Iterating dictionary
+                    if itemdictionary == 'name': # Looking for key 'name' and the term input by user1
+                        if term.lower() in detail.lower():
+                            name = detail # Setting name to display depending of key
+                            flag_search = True # Setting flag to confirm results available
+                            print(index, ') ', name, sep='', end='\n')
+                            index += 1
+            if not flag_search:
+                print('No results found')
+        else:
+            print('No items saved')
         # See Point 5 of the "Requirements of admin.py" section of the assignment brief.
         # pass
 

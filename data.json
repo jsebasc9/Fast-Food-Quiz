@@ -34,5 +34,23 @@
         "carbohydrates": "65",
         "sugars": "45",
         "sodium": "3"
+    },
+    {
+        "name": "Burger",
+        "energy": "123",
+        "fat": "4",
+        "protein": "45",
+        "carbohydrates": "65",
+        "sugars": " ",
+        "sodium": "43"
+    },
+    {
+        "name": "Mac Dress",
+        "energy": "234",
+        "fat": "564",
+        "protein": "56",
+        "carbohydrates": "34",
+        "sugars": "43",
+        "sodium": "43"
     }
 ]
