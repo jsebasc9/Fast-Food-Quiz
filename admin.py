@@ -102,6 +102,7 @@ while True:
 
         data.append(fast_food) # Appending fast_food dictionary to data list
         save_data(data) # Saving information of the list in JSON
+        print('Fast-food item added.')
         # pass
 
 
@@ -114,8 +115,8 @@ while True:
                 temp_dictionary = itemlist # Setting item as a Dictionary to iterate
                 for itemdictionary, detail in temp_dictionary.items(): # Iterating dictionary
                     if itemdictionary == 'name': # Lookinf for key 'name'
-                        name = detail # Setting name to display depending of key
-                print(index, ') ', name, sep='', end='\n')        
+                        name_item = detail # Setting name to display depending of key
+                print(index, ') ', name_item, sep='', end='\n')        
         else:
             print('No items saved') 
         # See Point 4 of the "Requirements of admin.py" section of the assignment brief.
@@ -135,11 +136,10 @@ while True:
             for itemlist in data: # Iterating data dictionary using enumerate to start from 1
                 temp_dictionary = itemlist # Setting item as a Dictionary to iterate
                 for itemdictionary, detail in temp_dictionary.items(): # Iterating dictionary
-                    if itemdictionary == 'name': # Looking for key 'name' and the term input by user1
+                    if itemdictionary == 'name': # Looking for key 'name' and the term input by user
                         if term.lower() in detail.lower():
-                            name = detail # Setting name to display depending of key
                             flag_search = True # Setting flag to confirm results available
-                            print(index, ') ', name, sep='', end='\n')
+                            print(index, ') ', detail, sep='', end='\n')
                             index += 1
             if not flag_search:
                 print('No results found')
@@ -161,27 +161,20 @@ while True:
                         if int(number_item) == index: # checking if index is equal to number_item to print information
                             for itemdictionary, detail in temp_dictionary.items(): # Iterating dictionary
                                 if itemdictionary == 'name': # Looking for key 'name'
-                                    name = detail # Setting name to display depending of key
-                                    print(name, sep='', end='\n')
+                                    print(detail, sep='', end='\n')
                                 if itemdictionary == 'energy': # Looking for key 'name' 
-                                    name = detail
-                                    number_calories = int(name) / 4.184
-                                    print('  Energy: ', name, ' kilojules (', round(number_calories),')',sep='', end='\n')
+                                    number_calories = int(detail) / 4.184
+                                    print('  Energy: ', detail, ' kilojoules (', round(number_calories),')',sep='', end='\n')
                                 if itemdictionary == 'fat': # Looking for key 'name'
-                                    name = detail
-                                    print('  Fat: ', name, ' grams', sep='', end='\n')
+                                    print('  Fat: ', detail, ' grams', sep='', end='\n')
                                 if itemdictionary == 'protein': # Looking for key 'name'
-                                    name = detail
-                                    print('  Protein: ', name, ' grams',sep='', end='\n')
+                                    print('  Protein: ', detail, ' grams',sep='', end='\n')
                                 if itemdictionary == 'carbohydrates': # Looking for key 'name'
-                                    name = detail
-                                    print('  Carbohydrates: ', name, ' grams',sep='', end='\n')
+                                    print('  Carbohydrates: ', detail, ' grams',sep='', end='\n')
                                 if itemdictionary == 'sugars': # Looking for key 'name'
-                                    name = detail
-                                    print('  Sugars: ', name, ' grams',sep='', end='\n')
+                                    print('  Sugars: ', detail, ' grams',sep='', end='\n')
                                 if itemdictionary == 'sodium': # Looking for key 'name'
-                                    name = detail
-                                    print('  Sodium: ', name, ' milligrams',sep='', end='\n')
+                                    print('  Sodium: ', detail, ' milligrams',sep='', end='\n')
                     else:
                         print('Invalid index number') 
                         break    
@@ -192,22 +185,43 @@ while True:
 
         
 
-    # elif choice == 'd':
+    elif choice == 'd':
         # Delete a fast-food item.
+        number_item = input('Enter item number to delete: ')
+        number_item = input_int(number_item) # repeatedly re-prompt the user for valid input integer
+        if data:
+                for index, itemlist in enumerate(data, 1): # Iterating data dictionary using enumerate to start from 1
+                    temp_dictionary = itemlist # Setting item as a Dictionary to iterate
+                    if int(number_item) <= len(data): # checking if index number entered does not exist
+                        if int(number_item) == index: # checking if index is equal to number_item to print information
+                            for itemdictionary, detail in temp_dictionary.items(): # Iterating dictionary
+                                if itemdictionary == 'name': # Looking for key 'name' and the term input by user1
+                                    data.pop(index - 1) # deleting item from list with index less 1
+                                    save_data(data) # Saving information of the list in JSON
+                                    print(detail, 'deleted.')
+                            break
+                    else:
+                        print('Invalid index number') 
+                        break    
+        else:
+            print('No items saved') 
         # See Point 7 of the "Requirements of admin.py" section of the assignment brief.
         # pass
 
         
 
-    # elif choice == 'q':
+    elif choice == 'q':
         # End the program.
+        print('Goodbye!')
+        break
         # See Point 8 of the "Requirements of admin.py" section of the assignment brief.
         # pass
 
 
 
-    # else:
+    else:
         # Print "invalid choice" message.
+        print('Invalid choice')
         # See Point 9 of the "Requirements of admin.py" section of the assignment brief.
         # pass
 
