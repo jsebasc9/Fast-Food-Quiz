@@ -52,5 +52,14 @@
         "carbohydrates": "34",
         "sugars": "43",
         "sodium": "43"
+    },
+    {
+        "name": "Pina",
+        "energy": "45",
+        "fat": "45",
+        "protein": "45",
+        "carbohydrates": "45",
+        "sugars": "45",
+        "sodium": "45"
     }
 ]
