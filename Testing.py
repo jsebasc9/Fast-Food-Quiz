@@ -1,8 +1,7 @@
- # repeatedly re-prompt the user for valid input no whitespace
-        fast_food['name'] = input_something(fast_food['name']) # repeatedly re-prompt the user for valid input no whitespace  
-        fast_food['energy'] = input_int(fast_food['energy']) # repeatedly re-prompt the user for valid input integer
-        fast_food['fat'] = input_int(fast_food['fat']) # repeatedly re-prompt the user for valid input integer
-        fast_food['protein'] = input_int(fast_food['protein']) # repeatedly re-prompt the user for valid input integer
-        fast_food['carbohydrates'] = input_int(fast_food['carbohydrates']) # repeatedly re-prompt the user for valid input integer
-        fast_food['sugars'] = input_int(fast_food['sugars']) # repeatedly re-prompt the user for valid input integer
-        fast_food['sodium'] = input_int(fast_food['sodium']) # repeatedly re-prompt the user for valid input integer
+dictionary1 = {"a": 1, "b": 2}
+dictionary2 = {"a": 3, "b": 2}
+common_pairs = dict()
+for key in dictionary1:
+    if (key in dictionary2 and dictionary1[key] == dictionary2[key]):
+        common_pairs[key] = dictionary1[key]
+print(common_pairs)

@@ -11,10 +11,19 @@
     {
         "name": "Big Mac",
         "energy": "2360",
-        "fat": "31",
+        "fat": "30",
         "protein": "27",
         "carbohydrates": "42",
         "sugars": "7",
         "sodium": "1020"
+    },
+    {
+        "name": "Pizza",
+        "energy": "2660",
+        "fat": "31",
+        "protein": "20",
+        "carbohydrates": "41",
+        "sugars": "71",
+        "sodium": "1025"
     }
 ]

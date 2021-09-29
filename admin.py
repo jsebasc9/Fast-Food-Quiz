@@ -133,7 +133,7 @@ while True:
         print(term)
         print('Search results: ')
         if data:
-            for itemlist in data: # Iterating data dictionary using enumerate to start from 1
+            for itemlist in data: # Iterating data dictionary
                 temp_dictionary = itemlist # Setting item as a Dictionary to iterate
                 for itemdictionary, detail in temp_dictionary.items(): # Iterating dictionary
                     if itemdictionary == 'name': # Looking for key 'name' and the term input by user
