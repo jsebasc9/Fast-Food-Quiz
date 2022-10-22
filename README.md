@@ -1,6 +1,6 @@
 # Fast-Food-Quiz
 
-Assessment Individual Project Programming
+Individual Project Programming
 Assignment to test ability and understanding of programming concetps in Python
 
 The implmentation required to design and develop the following related programs.
