@@ -1,4 +1,4 @@
-# PythonAssessmentFast-Food-Quiz
+#Fast-Food-Quiz
 Assessment Individual Project Programming
 Assignment to test ability and understanding of programming concetps in Python
 
