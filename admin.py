@@ -1,11 +1,5 @@
-# Name: Juan Sebastian Calderon Cordoba
-# Student Number:  10551059
-
-
-import json # Import the json module to allow us to read and write data in JSON format.
-data=[] # Defining data list to fill with information from data.txt
-
-
+import json # Import the json module read and write data in JSON format.
+data = []   # Define data list to fill with information from data.txt
 
 # This function repeatedly prompts for input until an integer is entered.
 def input_int(prompt):
@@ -16,11 +10,9 @@ def input_int(prompt):
                 prompt = input('Invalid input - Try again: ')
             else:
                 return response
-                break
         except ValueError:
             prompt = input('Invalid input - Try again: ')
             continue
-
 
 
 # This function repeatedly prompts for input until something other than whitespace is entered.
@@ -30,8 +22,6 @@ def input_something(prompt):
             prompt = input('Invalid input - Try again: ')
         else:
             return prompt
-            break
-
 
 
 # This function opens "data.txt" in write mode and writes data_list to it in JSON format.
@@ -41,21 +31,18 @@ def save_data(data_list):
     file.close()
 
 
-
 # Opening data.txt and read the data into a "data" variable.
 # If the file does not exist or does not contain JSON data, set "data" to an empty list instead.
 # The program should need to read anything from the file.
 try:
-    with open('data.txt', 'r') as file: # Opening JSON File on read mode
+    with open('data.txt', 'r') as file: # Open JSON File on read mode
         data = json.load(file) 
     print(data)
 except FileNotFoundError: # In case there is no file
     print('File not found, will create a new one.')
-    with open('data.txt', 'w') as file:  # Create a file using write/read mode
-        json.dump(data, file) 
-
+    with open('data.txt', 'w') as file:  # Create a file using write mode
+        json.dump(data, file, indent=4) 
 file.close()
-
 
 
 # Print welcome message, then enter the endless loop which prompts the user for a choice.
@@ -148,8 +135,8 @@ while True:
                                 if itemdictionary == 'name': # Search for key 'name'
                                     print(detail, sep='', end='\n')
                                 if itemdictionary == 'energy': # Search for key 'energy' 
-                                    number_calories = int(detail) / 4.184
-                                    print('  Energy: ', detail, ' kilojoules (', round(number_calories),')',sep='', end='\n')
+                                    number_calories = float(detail) / 4.184
+                                    print('  Energy: ', detail, ' kilojoules (', round(number_calories),' calories)',sep='', end='\n')
                                 if itemdictionary == 'fat': # Search for key 'fat'
                                     print('  Fat: ', detail, ' grams', sep='', end='\n')
                                 if itemdictionary == 'protein': # Search for key 'protein'
@@ -200,10 +187,7 @@ while True:
         break # Cleanly close of the program 
 
 
-    # In cas user chose a non existing option
+    # In case user chose a non existing option
     else:
         print('Invalid choice') # Display "invalid choice" message.
 
-
-
-# If you have been paid to write this program, please delete this comment.

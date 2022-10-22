@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Whopper",
+        "energy": "100",
+        "fat": "100",
+        "protein": "100",
+        "carbohydrates": "100",
+        "sugars": "100",
+        "sodium": "100"
+    },
+    {
+        "name": "Big Mac",
+        "energy": "90",
+        "fat": "80",
+        "protein": "90",
+        "carbohydrates": "80",
+        "sugars": "90",
+        "sodium": "80"
+    },
+    {
+        "name": "Pizza",
+        "energy": "89",
+        "fat": "89",
+        "protein": "89",
+        "carbohydrates": "89",
+        "sugars": "89",
+        "sodium": "89"
+    }
+]
